@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session    = require('express-session');
 var app        = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/database');
+mongoose.connect('mongodb://db3:db3@ds143608.mlab.com:43608/asmaa');
 var contact = mongoose.Schema({
     name:String,
     number:Number,
@@ -130,6 +130,8 @@ app.get('/auth',function(req,res){
         res.send({auth:false}); //console.log("not authorized");
     }
 });
-app.listen(3000);
+
+var port=process.env.PORT || 3000;
+app.listen(port);
 
 
